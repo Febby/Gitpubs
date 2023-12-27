@@ -1,10 +1,23 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import SearchForm from './components/SearchForm'
 import SearchResult from './components/SearchResult'
+import axios from 'axios';
+
 import './App.css'
 
 function App() {
- 
+  const [searchResults, setSearchResults] = useState(null);
+
+const handleSearch = async(username) =>{
+  try {
+    const response = await axios.get(`https://api.github.com/users/${username}`)
+    setSearchResults(response.data);
+  } catch (error) {
+    console.error("Error fetching data:", error)
+  }
+
+}
+
 
   return (
     <>
@@ -26,8 +39,8 @@ function App() {
       Search a Github User
     </h3>
       </div>  
-        <SearchForm/>
-        <SearchResult/>
+        <SearchForm onSearch={handleSearch}/>
+        <SearchResult data={searchResults}/>
       
     </>
   )

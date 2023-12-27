@@ -1,12 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react';
 
-function SearchForm(){
+function SearchForm({ onSearch }){
+
+    const [username, setUsername] = useState('');
     
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        onSearch(username);
+        setUsername('');
+
+    }
+
     return(
-    <form className="w-full max-w-sm mx-auto" action="#">
+    <form className="w-full max-w-sm mx-auto" onSubmit={handleSubmit}>
       <div className="mt-10 flex">
         <input
           type="text"
+          value={username}
+          onChange={(e)=> setUsername(e.target.value)}
           className="
             form-input
             block
