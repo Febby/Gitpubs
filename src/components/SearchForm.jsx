@@ -1,8 +1,5 @@
 import {useState} from 'react';
 import PropTypes from 'prop-types';
-
-
-
 function SearchForm({ onSearch,onReset }){
 
     const [username, setUsername] = useState('');
