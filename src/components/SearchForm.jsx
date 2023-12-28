@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function SearchForm({ onSearch }){
+function SearchForm({ onSearch,onReset }){
 
     const [username, setUsername] = useState('');
     
@@ -61,6 +61,36 @@ function SearchForm({ onSearch }){
           type="submit"
         >
           Search User
+        </button>
+        <button
+            onClick={() => {
+              setUsername('');
+              onReset();
+            }}
+          className="
+            ml-2
+            py-2
+            px-3
+            border border-red-300
+            rounded-md
+            text-sm
+            leading-4
+            font-medium
+            text-red-500
+            bg-black-200
+            hover:text-gray-500
+            focus:outline-none
+            focus:border-blue-300
+            focus:shadow-outline-blue
+            active:bg-gray-50
+            active:text-white-800
+            transition
+            duration-150
+            ease-in-out
+          "
+          type="submit"
+        >
+          Reset
         </button>
       </div>
     </form>
