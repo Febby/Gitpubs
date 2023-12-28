@@ -1,4 +1,7 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import PropTypes from 'prop-types';
+
+
 
 function SearchForm({ onSearch,onReset }){
 
@@ -97,4 +100,8 @@ function SearchForm({ onSearch,onReset }){
     )
 }
 
+SearchForm.propTypes = {
+  onSearch: PropTypes.func.isRequired,  
+  onReset: PropTypes.func.isRequired,   
+};
 export default SearchForm

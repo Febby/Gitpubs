@@ -11,7 +11,10 @@ SearchResult.propTypes = {
         html_url: PropTypes.string,
         blog: PropTypes.string,
     }),
+    searchPerformed: PropTypes.bool,
 };
+
+
 
 
 
